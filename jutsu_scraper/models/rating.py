@@ -1,9 +1,7 @@
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, Field, model_validator
 
 
 class Rating(BaseModel):
-    """Rating data model"""
-    
     value: float = Field(..., description="Rating value")
     best: float = Field(10.0, description="Best possible rating")
     worst: float = Field(1.0, description="Worst possible rating")

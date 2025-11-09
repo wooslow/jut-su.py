@@ -8,8 +8,6 @@ if TYPE_CHECKING:
 
 
 class Anime(BaseModel):
-    """Anime data model"""
-    
     title: str = Field(..., min_length=1, description="Anime title")
     original_title: str | None = Field(None, description="Original title")
     url: str = Field("", description="Page URL")

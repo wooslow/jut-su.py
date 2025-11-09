@@ -2,8 +2,6 @@ from pydantic import BaseModel, Field, field_validator
 
 
 class Episode(BaseModel):
-    """Episode data model"""
-    
     number: int = Field(..., gt=0, description="Episode number (must be positive)")
     title: str = Field(..., min_length=1, description="Episode title")
     url: str = Field(..., min_length=1, description="Episode URL")
