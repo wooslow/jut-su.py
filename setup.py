@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="jut-su.py",
-    version="0.1.4",
+    version="0.1.5",
     author="wooslow",
     author_email="private@wooslow.dev",
     description="Modern Python library for parsing anime data from jut.su website",
