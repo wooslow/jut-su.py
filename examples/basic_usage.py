@@ -5,7 +5,6 @@ def main():
     """Basic example of using JutsuClient"""
     client = JutsuClient()
     
-    # Get anime by slug
     anime: Anime | None = client.get_anime("mayoiga")
     
     if anime:

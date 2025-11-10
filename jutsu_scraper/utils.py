@@ -1,5 +1,5 @@
 import re
-from typing import TypeVar, Optional
+from typing import TypeVar
 
 from bs4 import BeautifulSoup
 
@@ -118,7 +118,7 @@ def is_year(text: str) -> bool:
     return False
 
 
-def extract_year_from_text(text: str) -> Optional[int]:
+def extract_year_from_text(text: str) -> int | None:
     """
     Extract year from text
     
@@ -214,7 +214,7 @@ def is_part_header(header_text: str, header_title: str = "") -> bool:
     return False
 
 
-def extract_season_number(text: str) -> Optional[int]:
+def extract_season_number(text: str) -> int | None:
     """
     Extract season number from text
     
