@@ -16,12 +16,10 @@ def main():
     print(f"Total Episodes: {len(anime.episodes)}")
     print()
     
-    # Iterate through seasons
     for season in anime.seasons:
         print(f"Season {season.number}: {season.title or 'Untitled'}")
         print(f"  Episodes: {len(season.episodes)}")
         
-        # Show arcs if they exist
         if season.arcs:
             print(f"  Arcs: {len(season.arcs)}")
             for arc in season.arcs:

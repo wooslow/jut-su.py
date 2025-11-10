@@ -1,5 +1,4 @@
 import re
-from typing import Optional
 from bs4 import BeautifulSoup
 
 from .models.episode import Episode
@@ -107,7 +106,7 @@ class AnimeParser:
         title = re.sub(PATTERN_AND_SEASONS, '', title)
         return title.strip()
     
-    def _parse_original_title(self) -> Optional[str]:
+    def _parse_original_title(self) -> str | None:
         """Parse original title"""
         info_block = self.soup.select_one(SELECTOR_INFO_BLOCK)
         if not info_block:
@@ -122,7 +121,7 @@ class AnimeParser:
             return orig_b_tag.get_text(strip=True)
         return None
     
-    def _parse_poster(self) -> Optional[str]:
+    def _parse_poster(self) -> str | None:
         """Parse poster URL"""
         poster_div = self.soup.select_one(SELECTOR_POSTER)
         if poster_div and poster_div.get('style'):
@@ -243,21 +242,21 @@ class AnimeParser:
         
         return years
     
-    def _parse_age_rating(self) -> Optional[str]:
+    def _parse_age_rating(self) -> str | None:
         """Parse age rating"""
         age_rating_elem = self.soup.select_one(SELECTOR_AGE_RATING)
         if age_rating_elem:
             return age_rating_elem.get_text(strip=True)
         return None
     
-    def _parse_status(self) -> Optional[str]:
+    def _parse_status(self) -> str | None:
         """Parse anime status (ongoing/completed)"""
         ongoing_link = self.soup.find('a', href=re.compile(PATTERN_ONGOING_LINK))
         if ongoing_link:
             return STATUS_ONGOING
         return None
     
-    def _parse_description(self) -> Optional[str]:
+    def _parse_description(self) -> str | None:
         """Parse description"""
         desc_elem = self.soup.select_one(SELECTOR_DESCRIPTION)
         if not desc_elem:
@@ -276,7 +275,7 @@ class AnimeParser:
         description = desc_span.get_text(separator=' ', strip=True)
         return clean_description(description)
     
-    def _parse_rating(self) -> Optional[Rating]:
+    def _parse_rating(self) -> Rating | None:
         """Parse rating"""
         rating_elem = self.soup.select_one(SELECTOR_RATING_VALUE)
         if not rating_elem:

@@ -1,6 +1,5 @@
 BASE_URL = "https://jut.su"
 
-# HTML selectors
 SELECTOR_TITLE = "h1.header_video"
 SELECTOR_INFO_BLOCK = "div.under_video_additional"
 SELECTOR_POSTER = "div.all_anime_title"
@@ -14,7 +13,6 @@ SELECTOR_SEASON_HEADERS = "h2.the-anime-season"
 SELECTOR_WATCH_DIV = "div.watch_l"
 SELECTOR_EPISODE_LINKS = "a[href*='/episode-']"
 
-# Text patterns
 PATTERN_WATCH_PREFIX = r"^Смотреть\s+"
 PATTERN_ALL_SERIES = r"\s+все серии(?:\s+и сезоны)?$"
 PATTERN_AND_SEASONS = r"\s+и сезоны$"
@@ -23,7 +21,6 @@ PATTERN_YEARS_RELEASE = "Годы выпуска:"
 PATTERN_YEAR_RELEASE = "Год выпуска:"
 PATTERN_ONGOING_LINK = r"/anime/ongoing/"
 
-# Regex patterns
 REGEX_SEASON_NUMBER = r"(\d+)\s+сезон"
 REGEX_SEASON_IN_BRACKETS = r"\((\d+)\s+сезон\)"
 REGEX_NUMBER_IN_BRACKETS = r"\((\d+)"
@@ -37,24 +34,23 @@ REGEX_PART_HEADER = r"часть\s*\d+|part\s*\d+"
 REGEX_SEASON_TITLE = r"^(.+?)\s*\(\d+\s+сезон\)"
 REGEX_PLAIN_SEASON = r"^\d+\s+сезон\s*$"
 REGEX_TITLE_BEFORE_NUMBER = r"^(.+?)\s+\d+"
+REGEX_QUALITY_FROM_LABEL = r"(\d+)"
+REGEX_QUALITY_FROM_URL = r"\.(\d+)\."
+REGEX_EPISODE_FROM_URL = r'/([^/]+)/episode-(\d+)\.html'
 
-# Year validation
 MIN_YEAR = 1900
 MAX_YEAR = 2100
 MIN_SEASON_NUMBER = 1
 MAX_SEASON_NUMBER = 20
 
-# Encoding
 DEFAULT_ENCODING = "windows-1251"
 ALTERNATIVE_ENCODING = "utf-8"
 ENCODING_CHECK_SIZE = 5000
 
-# Status
 STATUS_ONGOING = "онгоинг"
 
-# SEO words to filter
 SEO_WORDS = ["серия", "серии", "сезон", "онлайн", "аниме", "видео", "смотреть"]
 
-# Description cleaning
 MIN_WORD_LENGTH = 2
 
+VIDEO_QUALITIES = ['1080', '720', '480', '360']
