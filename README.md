@@ -2,10 +2,9 @@
 
 Modern Python library for parsing anime data from jut.su website.
 
-> > [!IMPORTANT]
+> [!IMPORTANT]
 > Is currently under development, so some features may not work properly or may not work at all
 
-> If you enjoy this project, please consider supporting it by giving it a star ⭐
 
 [![PyPI](https://img.shields.io/pypi/v/jut-su.py.svg)](https://pypi.org/project/jut-su.py/)
 [![Python Version](https://img.shields.io/pypi/pyversions/jut-su.py.svg)](https://pypi.org/project/jut-su.py/)
@@ -13,6 +12,8 @@ Modern Python library for parsing anime data from jut.su website.
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/jut-su.py)
 ![Discord](https://img.shields.io/discord/1437280570643189873)
 
+
+#### If you enjoy this project, please consider supporting it by giving it a star ⭐
 
 ### Support Discord:
 > **[jut-su.py Community](https://discord.gg/6KZGsEfzq4)**
@@ -122,7 +123,7 @@ Download multiple episodes at once:
 from jutsu_scraper import JutsuClient
 
 client = JutsuClient()
-client.login("username", "password", "https://jut.su/anime/")
+client.login("your_username", "your_password", "https://jut.su/anime/")
 
 anime_url = "https://jut.su/watari-ga-houkai/"
 

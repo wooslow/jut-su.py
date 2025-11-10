@@ -15,6 +15,7 @@ from .exceptions import (
     ParseError
 )
 from .logger import setup_logger, get_logger
+from .types import VideoQuality
 
 __all__ = [
     "JutsuClient",
@@ -31,5 +32,6 @@ __all__ = [
     "ParseError",
     "setup_logger",
     "get_logger",
+    "VideoQuality",
 ]
 

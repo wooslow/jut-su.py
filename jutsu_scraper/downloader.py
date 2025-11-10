@@ -6,6 +6,7 @@ import requests
 from .logger import get_logger
 from .exceptions import DownloadError, NetworkError
 from .constants import REGEX_EPISODE_FROM_URL
+from .types import VideoQuality, ProgressCallbackType
 
 logger = get_logger(__name__)
 
@@ -13,7 +14,7 @@ logger = get_logger(__name__)
 class VideoDownloader:
     """Handle video downloading with progress tracking"""
     
-    def __init__(self, session: requests.Session, timeout: int = 10):
+    def __init__(self, session: requests.Session, timeout: int = 10) -> None:
         """
         Initialize downloader
         
@@ -27,7 +28,7 @@ class VideoDownloader:
     def generate_filename(
         self,
         episode_url: str,
-        quality: str,
+        quality: VideoQuality,
         output_path: str | None = None
     ) -> str:
         """
@@ -69,7 +70,7 @@ class VideoDownloader:
         video_url: str,
         output_path: str,
         chunk_size: int = 8192,
-        progress_callback: Callable[[int, int], None] | None = None
+        progress_callback: ProgressCallbackType = None
     ) -> str:
         """
         Download video file

@@ -1,12 +1,14 @@
 import logging
 import sys
+from typing import TextIO, BinaryIO
+from io import TextIOWrapper
 
 
 def setup_logger(
     name: str = "jutsu_scraper",
     level: int = logging.WARNING,
     format_string: str | None = None,
-    stream=None
+    stream: TextIO | BinaryIO | TextIOWrapper | None = None
 ) -> logging.Logger:
     """
     Setup and configure logger

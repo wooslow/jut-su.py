@@ -22,6 +22,11 @@ from .exceptions import (
 )
 from .video_extractor import VideoExtractor
 from .downloader import VideoDownloader, format_progress
+from .types import (
+    VideoQuality,
+    ProgressCallbackType,
+    BatchProgressCallbackType,
+)
 
 logger = get_logger(__name__)
 _ua = UserAgent()
@@ -64,7 +69,7 @@ class JutsuClient:
         headers: dict[str, str] | None = None,
         use_random_ua: bool = True,
         log_level: int | None = None
-    ):
+    ) -> None:
         """
         Initialize client
         
@@ -304,10 +309,10 @@ class JutsuClient:
         self,
         episode_url: str,
         output_path: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int], None] | None = None
+        progress_callback: ProgressCallbackType = None
     ) -> str | None:
         """
         Download episode video
@@ -381,10 +386,10 @@ class JutsuClient:
         self,
         anime_url: str,
         output_dir: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int, int, int], None] | None = None
+        progress_callback: BatchProgressCallbackType = None
     ) -> list[str]:
         """
         Download all episodes from anime page
@@ -429,10 +434,10 @@ class JutsuClient:
         anime_url: str,
         season_number: int,
         output_dir: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int, int, int], None] | None = None
+        progress_callback: BatchProgressCallbackType = None
     ) -> list[str]:
         """
         Download all episodes from a specific season
@@ -483,10 +488,10 @@ class JutsuClient:
         season_number: int,
         arc_name: str,
         output_dir: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int, int, int], None] | None = None
+        progress_callback: BatchProgressCallbackType = None
     ) -> list[str]:
         """
         Download all episodes from a specific arc
@@ -541,10 +546,10 @@ class JutsuClient:
         anime_url: str,
         episode_numbers: list[int],
         output_dir: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int, int, int], None] | None = None
+        progress_callback: BatchProgressCallbackType = None
     ) -> list[str]:
         """
         Download specific episodes by their numbers
@@ -589,10 +594,10 @@ class JutsuClient:
         self,
         episodes: list[Episode],
         output_dir: str | None = None,
-        quality: str = "720",
+        quality: VideoQuality = "720",
         chunk_size: int = 8192,
         show_progress: bool = True,
-        progress_callback: Callable[[int, int, int, int], None] | None = None
+        progress_callback: BatchProgressCallbackType = None
     ) -> list[str]:
         """
         Internal method to download a list of episodes
